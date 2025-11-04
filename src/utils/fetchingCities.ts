@@ -9,3 +9,14 @@ export const searchFromQuery = async (city: string) => {
     throw error;
   }
 };
+export const cityInformation = async (lat: string, lon: string) => {
+  try {
+    const response = await axiosGet(
+      `/cities/city_information?lat=${lat}&lon=${lon}&code=mx&units=metric`
+    );
+    return response.data;
+  } catch (error) {
+    console.log(`Error en axios: ${error}`);
+    throw error;
+  }
+};

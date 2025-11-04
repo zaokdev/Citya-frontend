@@ -3,6 +3,8 @@ import SearchCityInput from "../components/SearchCityInput";
 import DefaultLayout from "../layout/DefaultLayout";
 import { useQuery } from "@tanstack/react-query";
 import { searchFromQuery } from "../utils/fetchingCities";
+import Container from "../layout/Container";
+import SearchCityGrid from "../components/SearchCityGridBoxes/SearchCityGrid";
 
 const IndexPage = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -10,7 +12,6 @@ const IndexPage = () => {
   const { isLoading, isFetching, isSuccess, isError, data } = useQuery({
     queryKey: ["citySearch", searchValue],
     queryFn: () => searchFromQuery(searchValue),
-
     //NO SE ACTIVARA HASTA QUE SEARCHVALUE TENGA VALOR
     enabled: !!searchValue,
   });
@@ -20,11 +21,13 @@ const IndexPage = () => {
   }, [data]);
 
   return (
-    <DefaultLayout>
-      <SearchCityInput setSearchValue={setSearchValue} />
-      {isLoading && <div>cargando...</div>}
-      {data && <div>{data[0].type}</div>}
-    </DefaultLayout>
+    <>
+      <section>
+        <h1 className="text-3xl text-center mb-8">City locator</h1>
+        <SearchCityInput setSearchValue={setSearchValue} />
+      </section>
+      <section>{data ? <SearchCityGrid data={data} /> : ""}</section>
+    </>
   );
 };
 

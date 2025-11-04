@@ -15,15 +15,19 @@ const SearchCityInput = ({ setSearchValue }: Props) => {
   };
 
   return (
-    <div className="border w-fit">
+    <div className="flex">
       <input
+        className="border p-2 flex-10"
         placeholder="Type your city"
         onChange={(event: any) => {
           setInputValue(event.target.value);
           console.log(event.target.value);
         }}
       />
-      <button className="bg-blue-500 hover:bg-blue-300" onClick={onSearch}>
+      <button
+        className="bg-blue-500 hover:bg-blue-300 rounded-tr-md rounded-br-md flex-1"
+        onClick={onSearch}
+      >
         Search
       </button>
     </div>
