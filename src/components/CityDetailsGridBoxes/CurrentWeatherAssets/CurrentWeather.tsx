@@ -1,4 +1,3 @@
-import Container from "../../../layout/Container";
 import GridLayout from "../../../layout/GridLayout";
 import {
   getOpenWeatherIcon,

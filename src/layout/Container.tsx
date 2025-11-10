@@ -1,4 +1,3 @@
-import React from "react";
 import type { childrenProps } from "../types";
 
 interface containerProps extends childrenProps {
