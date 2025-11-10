@@ -5,7 +5,6 @@ export const searchFromQuery = async (city: string) => {
     const response = await axiosGet(`/cities/search_cities?query=${city}`);
     return response.data;
   } catch (error) {
-    console.log(`Error en axios: ${error}`);
     throw error;
   }
 };
@@ -16,7 +15,6 @@ export const cityInformation = async (lat: string, lon: string) => {
     );
     return response.data;
   } catch (error) {
-    console.log(`Error en axios: ${error}`);
     throw error;
   }
 };
