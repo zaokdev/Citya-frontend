@@ -2,8 +2,10 @@ import { Link } from "react-router";
 import { getFlagUrl } from "../utils/UIdata";
 import type { CityFeatureType } from "../types";
 
-const CityCard = (city: CityFeatureType) => {
-  console.log(city);
+type CityCardProps = {
+  city: CityFeatureType;
+};
+const CityCard = ({ city }: CityCardProps) => {
   const mainCityName =
     city.properties.city || city.properties.address_line1 || "Unknown location";
   const countryName = city.properties.country || "";
