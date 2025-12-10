@@ -1,13 +1,9 @@
-import { Link } from "react-router"; // Asegúrate de tener react-router-dom instalado
+import { Link } from "react-router";
+import { getFlagUrl } from "../utils/UIdata";
+import type { CityFeatureType } from "../types";
 
-// Componente de la Tarjeta de Ciudad
-const CityCard = ({ city }: any) => {
-  // Función para obtener la URL de la bandera, con un fallback si el country_code no existe
-  const getFlagUrl = (countryCode: any) => {
-    return countryCode ? `/flags/4x3/${countryCode.toLowerCase()}.svg` : "";
-  };
-
-  // Determinar el nombre principal de la ciudad/ubicación
+const CityCard = (city: CityFeatureType) => {
+  console.log(city);
   const mainCityName =
     city.properties.city || city.properties.address_line1 || "Unknown location";
   const countryName = city.properties.country || "";
@@ -95,7 +91,7 @@ const CityCard = ({ city }: any) => {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                stroke-width="2"
+                strokeWidth="2"
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
               ></path>
             </svg>

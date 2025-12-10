@@ -6,6 +6,9 @@ export const getCityFullName = (data: any) => {
   return { city: data.city, state: data.state, country: data.country };
 };
 
+export const getFlagUrl = (countryCode: string) => {
+  return countryCode ? `/flags/4x3/${countryCode.toLowerCase()}.svg` : "";
+};
 export const getNightOrDay = (icon: string) => {
   return icon[2] == "d" ? "day" : "night";
 };
